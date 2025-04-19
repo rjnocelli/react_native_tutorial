@@ -1,4 +1,4 @@
-import { View, ScrollView, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator, FlatList } from "react-native";
 import { useEffect, useState } from "react";
 import { getLatestGames } from "../lib/metacritic";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -19,11 +19,11 @@ export function Main() {
       {games.length === 0 ? (
         <ActivityIndicator />
       ) : (
-        <ScrollView>
-          {games.map((game) => (
-            <GameCard key={game.slug} game={game} />
-          ))}
-        </ScrollView>
+        <FlatList
+          data={games}
+          keyExtractor={(item) => item.slug}
+          renderItem={({ item }) => <GameCard game={item} />}
+        />
       )}
     </View>
   );
