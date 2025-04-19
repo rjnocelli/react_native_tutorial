@@ -16,6 +16,9 @@ export function Main() {
 
   return (
     <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
+      {/* <View style={{ marginBottom: 20 }}> */}
+      {/* <Logo /> */}
+      {/* </View> */}
       {games.length === 0 ? (
         <ActivityIndicator />
       ) : (
